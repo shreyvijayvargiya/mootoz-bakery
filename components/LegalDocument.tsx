@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
-import { useEffect, useState, type CSSProperties, type ReactNode } from 'react'
+import { useEffect, type CSSProperties, type ReactNode } from 'react'
 
 const THEME = {
   bg: '#12100E',
@@ -42,17 +42,16 @@ export function LegalDocument({
   sections,
   closing,
 }: LegalDocumentProps) {
-  const [mounted, setMounted] = useState(false)
-
   useEffect(() => {
-    setMounted(true)
     const root = document.documentElement
     const body = document.body
     const prevBg = body.style.backgroundColor
+    const prevScheme = root.style.colorScheme
     body.style.backgroundColor = THEME.bg
     root.style.colorScheme = 'dark'
     return () => {
       body.style.backgroundColor = prevBg
+      root.style.colorScheme = prevScheme
     }
   }, [])
 
@@ -75,7 +74,6 @@ export function LegalDocument({
         backgroundColor: THEME.bg,
         color: THEME.text,
         fontFamily: '"Outfit", system-ui, sans-serif',
-        opacity: mounted ? 1 : 0.99,
       }}
     >
       <header className="sticky top-0 z-40 border-b border-[var(--mootoz-border)] bg-[color-mix(in_srgb,var(--mootoz-nav-bg)_92%,transparent)] backdrop-blur-xl">
@@ -219,8 +217,8 @@ export function LegalDocument({
           ) : null}
 
           <footer className="mt-14 flex flex-col items-start gap-4 border-t border-[var(--mootoz-border)] pt-8 sm:flex-row sm:items-center sm:justify-between">
-            <p className="text-xs text-[var(--mootoz-muted)]">
-              © {new Date().getFullYear()} Mootoz Bakery · www.mootozbakery.com
+            <p className="text-xs text-[var(--mootoz-muted)]" suppressHydrationWarning>
+              © 2026 Mootoz Bakery · www.mootozbakery.com
             </p>
             <div className="flex flex-wrap gap-4 text-sm">
               <Link

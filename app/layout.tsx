@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -38,7 +38,7 @@ export default function RootLayout({
         <link rel="icon" href="/motooz-logo.png" type="image/png" />
         <link rel="apple-touch-icon" href="/motooz-logo.png" />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {children}
         <Toaster richColors position="top-right" />
       </body>

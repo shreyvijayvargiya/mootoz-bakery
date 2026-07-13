@@ -1764,7 +1764,6 @@ function InstagramReelsStack() {
         {IG_REELS.map((reel, index) => (
           <motion.div
             key={reel.id}
-            role="button"
             tabIndex={0}
             onClick={() => setActive(index)}
             onKeyDown={(e) => {
@@ -1790,6 +1789,7 @@ function InstagramReelsStack() {
             }}
             transition={{ type: 'spring', stiffness: 260, damping: 22 }}
             aria-label={`Show Instagram reel ${index + 1}`}
+            aria-pressed={active === index}
           >
             <ReelEmbed
               embedSrc={reel.embed}
@@ -2023,15 +2023,13 @@ function StoresSection() {
               const Icon = shop.icon
               const isActive = activeId === shop.id
               return (
-                <motion.button
+                <motion.div
                   key={shop.id}
-                  type="button"
                   initial={{ opacity: 0, x: 16 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08, ease: EASE }}
                   onMouseEnter={() => setActiveId(shop.id)}
-                  onClick={() => setActiveId(shop.id)}
                   className={cn(
                     'rounded-2xl border p-4 text-left transition-all',
                     isActive
@@ -2039,7 +2037,11 @@ function StoresSection() {
                       : 'border-[var(--mootoz-border)] bg-[var(--mootoz-elevated)] hover:bg-[var(--mootoz-elevated)]',
                   )}
                 >
-                  <div className="flex items-start gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setActiveId(shop.id)}
+                    className="flex w-full items-start gap-3 text-left"
+                  >
                     <span
                       className="flex size-11 shrink-0 items-center justify-center rounded-2xl text-white shadow-md"
                       style={{ backgroundColor: shop.accent }}
@@ -2063,20 +2065,19 @@ function StoresSection() {
                       <p className="mt-2 text-xs leading-relaxed text-[var(--mootoz-muted)]">
                         {shop.address}
                       </p>
-                      <a
-                        href={shop.mapsUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--mootoz-maroon)] hover:underline"
-                      >
-                        <Navigation className="size-3.5" />
-                        Directions
-                        <ExternalLink className="size-3" />
-                      </a>
                     </div>
-                  </div>
-                </motion.button>
+                  </button>
+                  <a
+                    href={shop.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 ml-14 inline-flex items-center gap-1.5 text-xs font-semibold text-[var(--mootoz-maroon)] hover:underline"
+                  >
+                    <Navigation className="size-3.5" />
+                    Directions
+                    <ExternalLink className="size-3" />
+                  </a>
+                </motion.div>
               )
             })}
           </div>
@@ -2670,15 +2671,25 @@ function BakeryFooter() {
         </div>
       </div>
 
-      <div className="border-t border-[var(--mootoz-nav-border)] py-4 text-center text-xs text-[var(--mootoz-nav-muted)]">
-        © {new Date().getFullYear()} Mootoz Bakery. All Rights Reserved. ·
-        mootozbakery.com
+      <div
+        className="border-t border-[var(--mootoz-nav-border)] py-4 text-center text-xs text-[var(--mootoz-nav-muted)]"
+        suppressHydrationWarning
+      >
+        © 2026 Mootoz Bakery. All Rights Reserved. · mootozbakery.com
       </div>
     </footer>
   )
 }
 
 function WhatsAppFab() {
+  const [ready, setReady] = useState(false)
+
+  useEffect(() => {
+    setReady(true)
+  }, [])
+
+  if (!ready) return null
+
   return (
     <motion.a
       href={LINKS.whatsapp}
@@ -2687,7 +2698,7 @@ function WhatsAppFab() {
       aria-label="Chat on WhatsApp"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      transition={{ delay: 1, type: 'spring', stiffness: 260, damping: 18 }}
+      transition={{ delay: 0.4, type: 'spring', stiffness: 260, damping: 18 }}
       whileHover={{ scale: 1.08 }}
       whileTap={{ scale: 0.95 }}
       className="fixed right-5 bottom-5 z-40 flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl shadow-green-900/30 sm:right-7 sm:bottom-7"
