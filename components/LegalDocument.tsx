@@ -173,7 +173,7 @@ export function LegalDocument({
                 ))}
 
                 {section.bullets && section.bullets.length > 0 ? (
-                  <ul className="mb-4 space-y-2.5 border-l border-[var(--mootoz-border)] pl-5">
+                  <ul className="mb-4 space-y-2.5 pl-5">
                     {section.bullets.map((item) => (
                       <li
                         key={item}
