@@ -1,0 +1,20 @@
+{
+  "short_name": "Mootoz Bakery",
+  "name": "Mooto'z Bakery — 100% Eggless Bakery",
+  "icons": [
+    {
+      "src": "/motooz-logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/motooz-logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#12100E",
+  "background_color": "#12100E"
+}

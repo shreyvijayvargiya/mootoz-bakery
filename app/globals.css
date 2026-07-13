@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --background: #12100e;
+  --foreground: #f3ede5;
+  --card: #1a1714;
+  --card-foreground: #f3ede5;
+  --popover: #1a1714;
+  --popover-foreground: #f3ede5;
+  --primary: #c4a574;
+  --primary-foreground: #12100e;
+  --secondary: #221e1a;
+  --secondary-foreground: #f3ede5;
+  --muted: #221e1a;
+  --muted-foreground: #9c9388;
+  --accent: #221e1a;
+  --accent-foreground: #f3ede5;
+  --border: #3a342e;
+  --input: #3a342e;
+  --ring: #c4a574;
+}
+
+body {
+  @apply min-h-screen antialiased;
+  background-color: var(--background);
+  color: var(--foreground);
+}
