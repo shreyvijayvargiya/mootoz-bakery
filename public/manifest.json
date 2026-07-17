@@ -1,20 +1,15 @@
 {
-  "short_name": "Mootoz Bakery",
-  "name": "Mooto'z Bakery — 100% Eggless Bakery",
+  "short_name": "Hearth",
+  "name": "Hearth Bakery — New York",
   "icons": [
     {
-      "src": "/motooz-logo.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "/motooz-logo.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "/icon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any"
     }
   ],
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#12100E",
-  "background_color": "#12100E"
+  "theme_color": "#050505",
+  "background_color": "#050505"
 }

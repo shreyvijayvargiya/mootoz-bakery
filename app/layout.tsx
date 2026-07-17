@@ -4,15 +4,14 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: {
-    default: "Mooto'z Bakery — 100% Eggless Bakery in Kota, Rajasthan",
-    template: '%s | Mootoz Bakery',
+    default: 'Hearth Bakery — 100% Eggless Bakery in New York',
+    template: '%s | Hearth Bakery',
   },
   description:
-    "Mooto'z Bakery crafts luxury 100% eggless cakes and confections in Kota. Order online on Swiggy & Zomato, or visit our Kunhari store.",
+    'Hearth Bakery crafts luxury 100% eggless cakes and confections in New York. Reserve a table or visit our West Village, SoHo, and Upper East Side locations.',
   icons: {
-    icon: [{ url: '/motooz-logo.png', type: 'image/png' }],
-    apple: [{ url: '/motooz-logo.png', type: 'image/png' }],
-    shortcut: '/motooz-logo.png',
+    icon: [{ url: '/icon.svg', type: 'image/svg+xml' }],
+    apple: [{ url: '/icon.svg', type: 'image/svg+xml' }],
   },
   manifest: '/manifest.json',
 }
@@ -35,8 +34,7 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=JetBrains+Mono:wght@600&family=Outfit:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" href="/motooz-logo.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/motooz-logo.png" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
       </head>
       <body suppressHydrationWarning>
         {children}
